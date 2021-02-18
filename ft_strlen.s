@@ -12,7 +12,7 @@
 
 global  _ft_strlen
     section     .text
-ft_strlen:
+_ft_strlen:
             xor         rax, rax                ; contador a cero
             jmp         count                   ; comparador
 plus:
