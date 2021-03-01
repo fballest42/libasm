@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:42:07 by fballest          #+#    #+#             */
-/*   Updated: 2021/02/18 13:38:36 by fballest         ###   ########.fr       */
+/*   Updated: 2021/02/25 09:43:12 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int		main(void)
 
 	printf("--strlen\n");
 	STRLEN("")
-	STRLEN("toto")
-	STRLEN("totototo")
-	STRLEN("0123456789abcdef")
+	STRLEN("hola")
+	STRLEN("hola mundo")
+	STRLEN("hola mundo cruel, donde me estará esperando, ya es la hora de comer")
 	STRLEN("42")
 	STRLEN("1")
-	printf("-done\n");
+	printf("hecho\n");
 
 	printf("\n--strcmp\n");
 	STRCMP("", "")

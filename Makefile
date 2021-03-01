@@ -6,13 +6,13 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 11:03:34 by fballest          #+#    #+#              #
-#    Updated: 2021/02/18 13:39:26 by fballest         ###   ########.fr        #
+#    Updated: 2021/02/25 10:58:36 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .DELETE_ON_ERROR:
 
-SRCS		=	ft_strlen.s
+SRCS		=	ft_strlen.s ft_strcpy.s
 OBJS		=	$(SRCS:.s=.o)
 # BONUS_SRCS	=	
 # BONUS_OBJS	=	$(BONUS_SRCS:.s=.o)
@@ -26,7 +26,7 @@ HEADER		=	libasm.h
 # TEST_BONUS	=	test_bonus
 
 %.o:			%.s
-				$(NA) $(NA_FLAGS) $<
+				$(NA) $(NA_FLAGS) $< -o $@
 
 all:			$(NAME)
 
