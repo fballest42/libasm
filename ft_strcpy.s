@@ -11,16 +11,8 @@
 ; # **************************************************************************** #
 
 global  _ft_strcpy
-    section     .test
 _ft_strcpy:
-            xor         rax, rax                ; contador a cero
-            jmp         count                   ; comparador
-plus:
-            inc         rax                     ; incrementador
-count:
-            cmp         BYTE [rdi + rax], 0     ; condicion comparador
-            jne         plus                    ; Ejecuta si se cumple
-done:
-            ret
+        mov     rax, rdi          ;
+        ret     rax               ;
 
 
