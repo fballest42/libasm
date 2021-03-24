@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:42:07 by fballest          #+#    #+#             */
-/*   Updated: 2021/03/16 10:05:15 by fballest         ###   ########.fr       */
+/*   Updated: 2021/03/17 13:25:27 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,16 +116,61 @@ int		main()
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_STRCMP VS STRCMP\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"----------------------------\n" ANSI_COLOR_RESET);
-	// printf("\n--strcmp\n");
-	// STRCMP("", "")
-	// STRCMP("toto", "toto")
-	// STRCMP("", "toto")
-	// STRCMP("toto", "")
-	// STRCMP("toto", "totobar")
-	// printf("`%s`:`%s` = %d\n", "TOTO", NULL, ft_strcmp("TOTO", NULL));
-	// printf("`%s`:`%s` = %d\n", NULL, "TOTO", ft_strcmp(NULL, "TOTO"));
-	// printf("`%s`:`%s` = %d\n", NULL, NULL, ft_strcmp(NULL, NULL));
-	// printf("-done\n");
+	printf("\n--strcmp\n");
+	STRCMP(s1, s1)
+	if (ft_strcmp(s1, s1) != (int)strcmp(s1, s1))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP(s2, s2)
+	if (ft_strcmp(s2, s2) != (int)strcmp(s2, s2))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP(s3, s3)
+	if (ft_strcmp(s3, s3) != (int)strcmp(s3, s3))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP(s4, s4)
+	if (ft_strcmp(s4, s4) != (int)strcmp(s4, s4))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP(s5, s5)
+	if (ft_strcmp(s5, s5) != (int)strcmp(s5, s5))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP(s6, s6)
+	if (ft_strcmp(s6, s6) != (int)strcmp(s6, s6))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP(s7, s7)
+	if (ft_strcmp(s7, s7) != (int)strcmp(s7, s7))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP(s8, s8)
+	if (ft_strcmp(s8, s8) != (int)strcmp(s8, s8))
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	STRCMP("Holita soy yo", "Holita soy yó")
+	if (ft_strcmp("Holita soy yo", "Holita soy yó") == (int)strcmp("Holita soy yo", "Holita soy yó"))
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	STRCMP("Hola", "Höla")
+	if (ft_strcmp("Hola", "Höla") == (int)strcmp("Hola", "Höla"))
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	printf("`%s`:`%s` = %d\n", "TOTO", NULL, ft_strcmp("TOTO", NULL));
+	printf("`%s`:`%s` = %d\n", NULL, "TOTO", ft_strcmp(NULL, "TOTO"));
+	printf("`%s`:`%s` = %d\n", NULL, NULL, ft_strcmp(NULL, NULL));
+	printf("-done\n");
 	printf(ANSI_COLOR_YELLOW "\n----------------------\nFINALIZADO TEST STRCMP\n----------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
