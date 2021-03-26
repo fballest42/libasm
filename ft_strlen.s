@@ -13,15 +13,12 @@
 global  _ft_strlen
     section     .text
 _ft_strlen:
-            xor         rax, rax                ; contador a cero
+            mov         rax, 0                  ; contador a cero
             jmp         count                   ; comparador
 plus:
-            inc         rax                     ; incrementador
+            inc         rax                     ; incrementador de rax que será el retorno
 count:
             cmp         BYTE [rdi + rax], 0     ; condicion comparador
-            jne         plus                    ; Ejecuta si se cumple
+            jne         plus                    ; Ejecuta si no se cumple la condición anterior
 done:
             ret
-
-
-
