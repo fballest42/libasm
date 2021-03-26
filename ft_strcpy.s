@@ -10,7 +10,6 @@
 ; #                                                                              #
 ; # **************************************************************************** #
 
-<<<<<<< HEAD
 section		.text
 		global		_ft_strcpy      ; Nombre de la función
 _ft_strcpy:
@@ -24,11 +23,3 @@ repeat:
 finished:
 		mov			byte[rdi], 0x0  ; No estoy seguro que sea NECESARIO
 		ret
-=======
-global  _ft_strcpy
-_ft_strcpy:
-        mov     rax, rdi          ;
-        ret     rax               ;
-
-
->>>>>>> 21157d83160d2d6f2ec7456603037cd2acdd72e2
