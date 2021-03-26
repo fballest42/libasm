@@ -6,13 +6,13 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 11:03:34 by fballest          #+#    #+#              #
-#    Updated: 2021/02/25 10:58:36 by fballest         ###   ########.fr        #
+#    Updated: 2021/03/15 13:21:20 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .DELETE_ON_ERROR:
 
-SRCS		=	ft_strlen.s ft_strcpy.s
+SRCS		=	ft_strlen.s
 OBJS		=	$(SRCS:.s=.o)
 # BONUS_SRCS	=	
 # BONUS_OBJS	=	$(BONUS_SRCS:.s=.o)
@@ -22,7 +22,7 @@ NA_FLAGS	=	-f macho64
 FLAGS 		=	-Wall -Werror -Wextra
 NAME		=	libasm.a
 HEADER		=	libasm.h
-# TEST		=	test
+TEST		=	test
 # TEST_BONUS	=	test_bonus
 
 %.o:			%.s
@@ -42,8 +42,8 @@ fclean:			clean
 re:				fclean $(NAME)
 
 test:			$(NAME)
-				gcc $(FLAGS) -I main.c -L. -lasm -o $(TEST)
-				./$(TEST) < Makefile
+				gcc $(FLAGS) main.c $(NAME) -o $(TEST)
+				./$(TEST)
 
 #bonus:			$(OBJS) $(BONUS_OBJS)
 #				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
