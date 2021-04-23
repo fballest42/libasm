@@ -6,11 +6,11 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/08 03:06:59 by cacharle          #+#    #+#              #
-#    Updated: 2021/04/22 19:39:43 by fballest         ###   ########.fr        #
+#    Updated: 2021/04/23 10:29:41 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBASM_PATH = ../libasm
+LIBASM_PATH = ../
 
 RM = rm -fv
 MAKE = make --no-print-directory
