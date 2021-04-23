@@ -10,14 +10,15 @@
 ; #                                                                              #
 ; # **************************************************************************** #
 
-global  _ft_strlen
+    section.text
+    global  _ft_strlen
 _ft_strlen:
             mov         rax, 0                  ; contador a cero
-            jmp         count                   ; comparador
-plus:
-            inc         rax                     ; incrementador de rax que será el retorno
-count:
-            cmp         BYTE [rdi + rax], 0     ; condicion comparador
-            jne         plus                    ; Ejecuta si no se cumple la condición anterior
+counter:
+            cmp			byte [rdi + rax], 0		; compara byte a byte
+			jz			done					; Si es cero salta a done
+			inc			rax						; Si no es cero incrementa rax
+			jmp			counter                 ; Vuelve a ejecutarse
+
 done:
-            ret
+            ret                                 ; Si llega a exit devuelve rax

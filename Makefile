@@ -6,13 +6,13 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 11:03:34 by fballest          #+#    #+#              #
-#    Updated: 2021/03/15 13:21:20 by fballest         ###   ########.fr        #
+#    Updated: 2021/04/23 10:31:33 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .DELETE_ON_ERROR:
 
-SRCS		=	ft_strlen.s
+SRCS		=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s ft_read.s ft_write.s ft_strcmp.s
 OBJS		=	$(SRCS:.s=.o)
 # BONUS_SRCS	=	
 # BONUS_OBJS	=	$(BONUS_SRCS:.s=.o)
@@ -28,10 +28,10 @@ TEST		=	test
 %.o:			%.s
 				$(NA) $(NA_FLAGS) $< -o $@
 
-all:			$(NAME)
-
 $(NAME):		$(OBJS) $(HEADER)
 				ar rcs $(NAME) $(OBJS)
+
+all:			$(NAME)
 
 clean:
 				rm -rf $(OBJS) $(BONUS_OBJS)

@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:42:07 by fballest          #+#    #+#             */
-/*   Updated: 2021/03/17 13:25:27 by fballest         ###   ########.fr       */
+/*   Updated: 2021/04/22 19:48:54 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		main()
 {
 	int		i;
 	long	r;
-	char	buffer[100];
+	char	buffer[800];
 	char	*s1;
 	char	*s2;
 	char	*s3;
@@ -157,70 +157,109 @@ int		main()
 		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	else
 		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
-	STRCMP("Holita soy yo", "Holita soy yó")
-	if (ft_strcmp("Holita soy yo", "Holita soy yó") == (int)strcmp("Holita soy yo", "Holita soy yó"))
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
-	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
-	STRCMP("Hola", "Höla")
-	if (ft_strcmp("Hola", "Höla") == (int)strcmp("Hola", "Höla"))
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
-	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
-	printf("`%s`:`%s` = %d\n", "TOTO", NULL, ft_strcmp("TOTO", NULL));
-	printf("`%s`:`%s` = %d\n", NULL, "TOTO", ft_strcmp(NULL, "TOTO"));
-	printf("`%s`:`%s` = %d\n", NULL, NULL, ft_strcmp(NULL, NULL));
 	printf("-done\n");
 	printf(ANSI_COLOR_YELLOW "\n----------------------\nFINALIZADO TEST STRCMP\n----------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_STRCPY VS STRCPY\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"----------------------------\n" ANSI_COLOR_RESET);
-	// printf("\n--strcpy\n");
-	// printf("`%s` (`toto`)\n", ft_strcpy(buffer, "toto"));
-	// printf("`%s` (empty)\n", ft_strcpy(buffer, ""));
-	// printf("`%s` (`long message`)\n", ft_strcpy(buffer, "long message"));
-	// printf("`%s` (NULL > not modified)\n", ft_strcpy(buffer, NULL));
-	// printf("-done\n");
+	printf("\n--strcpy\n");
+	buffer[0] = '\0';
+	printf("`%s` debe devolver [ %s ]\n", s1, ft_strcpy(buffer, s1));
+	if (strmcmp (s1, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", s2, ft_strcpy(buffer, s2));
+	if (strmcmp (s2, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", s3, ft_strcpy(buffer, s3));
+	if (strmcmp (s3, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", s4, ft_strcpy(buffer, s4));
+	if (strmcmp (s4, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", s5, ft_strcpy(buffer, s5));
+	if (strmcmp (s5, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", s6, ft_strcpy(buffer, s6));
+	if (strmcmp (s6, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", s7, ft_strcpy(buffer, s7));
+	if (strmcmp (s7, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", s8, ft_strcpy(buffer, s8));
+	if (strmcmp (s8, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);	
+	buffer[0] = '\0';
+	printf("`%s` --> devuelve --> [ %s ]\n", lstr, ft_strcpy(buffer, lstr));	
+	if (strmcmp (lstr, buffer) == 0)
+		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+	buffer[0] = '\0';
+	printf("-done\n");
 	printf(ANSI_COLOR_YELLOW "\n----------------------\nFINALIZADO TEST STRCPY\n----------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n--------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_WRITE VS WRITE\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"--------------------------\n" ANSI_COLOR_RESET);
-	// printf("\n--write\n");
-	// WRITE("toto", 4L)
-	// WRITE("totototo", 4L)
-	// WRITE("totototo", 8L)
-	// WRITE("toto", 2L)
-	// printf("-done\n");
+	printf("\n--write\n");
+	WRITE("toto", 4L)
+	WRITE("totototo", 4L)
+	WRITE("totototo", 8L)
+	WRITE("toto", 2L)
+	printf("-done\n");
 	printf(ANSI_COLOR_YELLOW "\n---------------------\nFINALIZADO TEST WRITE\n---------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_READ VS READ\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"------------------------\n" ANSI_COLOR_RESET);
-	// printf("\n--read (Makefile)\n");
-	// READ(buffer, 50)
-	// READ(buffer, 25)
-	// READ(buffer, 4)
-	// READ(buffer, 26)
-	// READ(buffer, 14)
-	// READ(buffer, 0)
-	// printf("-done\n");
+	printf("\n--read (Makefile)\n");
+	READ(buffer, 50)
+	READ(buffer, 25)
+	READ(buffer, 4)
+	READ(buffer, 26)
+	READ(buffer, 14)
+	READ(buffer, 0)
+	printf("-done\n");
 	printf(ANSI_COLOR_YELLOW "\n--------------------\nFINALIZADO TEST READ\n--------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_STRDUP VS STRDUP\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"----------------------------\n" ANSI_COLOR_RESET);
-	// printf("\n--ft_strdup\n");
-	// tmp2 = ft_strdup("toto");
-	// DUP(tmp2)
-	// free(tmp2);
-	// DUP("totobar")
-	// DUP("long message")
-	// DUP("")
-	// DUP(NULL)
-	// printf("-done\n");
+	printf("\n--ft_strdup\n");
+	tmp2 = ft_strdup("toto");
+	DUP(tmp2)
+	free(tmp2);
+	DUP("totobar")
+	DUP("long message")
+	DUP("")
+	DUP(NULL)
+	printf("-done\n");
 	printf(ANSI_COLOR_YELLOW "\n----------------------\nFINALIZADO TEST STRDUP\n----------------------\n\n" ANSI_COLOR_RESET);
 
-	// return (0);
+	return (0);
 }

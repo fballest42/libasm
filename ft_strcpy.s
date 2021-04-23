@@ -10,16 +10,16 @@
 ; #                                                                              #
 ; # **************************************************************************** #
 
-section		.text
+		section		.text
 		global		_ft_strcpy      ; Nombre de la función
 _ft_strcpy:
 		mov			rax, rdi        ; Copia la primera cadena a rax
-repeat:
-		cmp			byte[rsi], 0	; Comprueba que exite algo aún en rsi
-		je			finished        ; Si no hay nada en rsi manda a finished
-		movsb						; copia desde DS:(E)SI a ES:(E)DI (de rsi a rdi), byte a byte
-; movsb: byte a byte - movsw: word a word - movsd: doubleword a doubleword 
-        jmp			repeat			; vuelve a ejecutar el repeat haciendo una recursiva
-finished:
-		mov			byte[rdi], 0x0  ; No estoy seguro que sea NECESARIO
+copy:
+		cmp			byte[rsi], 0	; Comprueba que exite algo la segunda cadena rsi
+		je			done	        ; Si no hay nada en rsi manda a done
+		movsb						; copia desde rsi a rdi byte a byte
+									; movsb: byte a byte - movsw: word a word - movsd: doubleword a doubleword 
+        jmp			copy			; vuelve a ejecutar el repeat haciendo una recursiva
+done:
+		mov			byte[rdi], 0x0  ; Pone el caracter final de cadena, pero no se si hace falta.
 		ret

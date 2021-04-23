@@ -12,12 +12,15 @@
 
 ; OJO EN ESTA FUNCION rdi = file descriptor, rsi = cadena, rdx = contador de bytes
 
+	section		.text
+	global		_ft_read
+	extern		___error
 _ft_read:
 		mov			rax, 0x2000003	; Indica la llamada del sistema a Read
 		syscall                     ; Llama al sistema
-		jc			error			; llama a error para comprobar si ha leido si falla la llamada
+		jc			herror			; llama a error para comprobar si ha leido si falla la llamada
 		ret                         ; Retorna el file descriptor asignado en rax
-error:
+herror:
 		push rax					; mueve a rax la cima de la pila
 		call ___error				; rax apunta a la variable resultante de la llamada del sistema.
 		pop qword[rax]				; Mueve a rax la variable anterior si existe 
