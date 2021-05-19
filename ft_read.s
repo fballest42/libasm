@@ -18,7 +18,7 @@
 _ft_read:
 		mov			rax, 0x2000003	; Indica la llamada del sistema a Read
 		syscall                     ; Llama al sistema
-		jc			herror			; llama a error para comprobar si ha leido si falla la llamada
+		jc			herror			; llama a herror si falla la llamada del sistema
 		ret                         ; Retorna el file descriptor asignado en rax
 herror:
 		push rax					; mueve a rax la cima de la pila
