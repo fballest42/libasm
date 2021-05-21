@@ -1,6 +1,6 @@
 # libasm
 
-42 Cursus project of ring number 4 or level 4.
+42 Cursus project.
 It is a collection of funtions developed in assembler.
 
 ft_strlen (as indicate man 3 strlen)

@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:42:07 by fballest          #+#    #+#             */
-/*   Updated: 2021/04/22 19:48:54 by fballest         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:06:38 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 */
 # define STRLEN(x)			printf("\nCADENA `%s`\n - FT_STRLEN = %d\n - STRLEN    = %d\n -----------------------\n", x, ft_strlen(x), (int)strlen(x));
 # define STRCMP(a, b)		printf("`%s`:`%s` = %d (%d)\n", a, b, ft_strcmp(a, b), strcmp(a, b));
-# define WRITE(s, x)		printf("^%ld (`%s`:%ld)\n", ft_write(STDOUT_FILENO, s, x), s, x);
-# define READ(b, x)			r = ft_read(STDIN_FILENO, buffer, x); printf("`%s`:%ld\n", buffer, r);
+# define WRITE(fd, s, x)	printf(":%ld `%s`:%ld\n", ft_write(fd, s, x), s, x);
+# define READ(fd, b, x)		r = ft_read(fd, b, x); printf("`%s`:%ld\n", b, r);
 # define DUP(s)				tmp = ft_strdup(s); printf("`%s` (`%s`)\n", tmp, s); free(tmp); tmp = NULL;
 # define ANSI_COLOR_RED     "\x1b[31m"
 # define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -35,7 +35,7 @@ int		main()
 {
 	int		i;
 	long	r;
-	char	buffer[800];
+	char	buffer[1351];
 	char	*s1;
 	char	*s2;
 	char	*s3;
@@ -45,6 +45,8 @@ int		main()
 	char	*s6;
 	char	*s7;
 	char	*s8;
+	char	*tmp;
+	char	*tmp2;
 
 	s1 = "";
 	s2 = "F";
@@ -116,7 +118,6 @@ int		main()
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_STRCMP VS STRCMP\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"----------------------------\n" ANSI_COLOR_RESET);
-	printf("\n--strcmp\n");
 	STRCMP(s1, s1)
 	if (ft_strcmp(s1, s1) != (int)strcmp(s1, s1))
 		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
@@ -163,103 +164,155 @@ int		main()
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_STRCPY VS STRCPY\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"----------------------------\n" ANSI_COLOR_RESET);
-	printf("\n--strcpy\n");
 	buffer[0] = '\0';
-	printf("`%s` debe devolver [ %s ]\n", s1, ft_strcpy(buffer, s1));
-	if (strmcmp (s1, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` debe devolver [`%s`]\n", s1, ft_strcpy(buffer, s1));
+	if (strcmp (s1, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", s2, ft_strcpy(buffer, s2));
-	if (strmcmp (s2, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", s2, ft_strcpy(buffer, s2));
+	if (strcmp (s2, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", s3, ft_strcpy(buffer, s3));
-	if (strmcmp (s3, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", s3, ft_strcpy(buffer, s3));
+	if (strcmp (s3, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", s4, ft_strcpy(buffer, s4));
-	if (strmcmp (s4, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", s4, ft_strcpy(buffer, s4));
+	if (strcmp (s4, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", s5, ft_strcpy(buffer, s5));
-	if (strmcmp (s5, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", s5, ft_strcpy(buffer, s5));
+	if (strcmp (s5, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", s6, ft_strcpy(buffer, s6));
-	if (strmcmp (s6, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", s6, ft_strcpy(buffer, s6));
+	if (strcmp (s6, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", s7, ft_strcpy(buffer, s7));
-	if (strmcmp (s7, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", s7, ft_strcpy(buffer, s7));
+	if (strcmp (s7, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", s8, ft_strcpy(buffer, s8));
-	if (strmcmp (s8, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", s8, ft_strcpy(buffer, s8));
+	if (strcmp (s8, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);	
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);	
 	buffer[0] = '\0';
-	printf("`%s` --> devuelve --> [ %s ]\n", lstr, ft_strcpy(buffer, lstr));	
-	if (strmcmp (lstr, buffer) == 0)
-		printf(ANSI_COLOR_RED	"TEST CORRECTO\n" ANSI_COLOR_RESET);
+	printf("`%s` --> devuelve --> [`%s`]\n", lstr, ft_strcpy(buffer, lstr));	
+	if (strcmp (lstr, buffer) == 0)
+		printf(ANSI_COLOR_GREEN	"TEST CORRECTO\n" ANSI_COLOR_RESET);
 	else
-		printf(ANSI_COLOR_GREEN	"TEST FALLIDO\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_RED	"TEST FALLIDO\n" ANSI_COLOR_RESET);
 	buffer[0] = '\0';
-	printf("-done\n");
 	printf(ANSI_COLOR_YELLOW "\n----------------------\nFINALIZADO TEST STRCPY\n----------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n--------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_WRITE VS WRITE\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"--------------------------\n" ANSI_COLOR_RESET);
-	printf("\n--write\n");
-	WRITE("toto", 4L)
-	WRITE("totototo", 4L)
-	WRITE("totototo", 8L)
-	WRITE("toto", 2L)
-	printf("-done\n");
+	printf(ANSI_COLOR_RESET "\n");
+	int fd;
+	fd = 1;
+	WRITE(fd, s2, (long)ft_strlen(s2))
+	printf(ANSI_COLOR_RESET "\n");
+	WRITE(fd, s3, (long)ft_strlen(s3))
+	printf(ANSI_COLOR_RESET "\n");
+	WRITE(fd, s4, (long)ft_strlen(s4))
+	printf(ANSI_COLOR_RESET "\n");
+	WRITE(fd, s5, (long)ft_strlen(s5))
+	printf(ANSI_COLOR_RESET "\n");
 	printf(ANSI_COLOR_YELLOW "\n---------------------\nFINALIZADO TEST WRITE\n---------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_READ VS READ\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"------------------------\n" ANSI_COLOR_RESET);
-	printf("\n--read (Makefile)\n");
-	READ(buffer, 50)
-	READ(buffer, 25)
-	READ(buffer, 4)
-	READ(buffer, 26)
-	READ(buffer, 14)
-	READ(buffer, 0)
-	printf("-done\n");
+	fd = open("texto.txt", O_WRONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	READ(fd, buffer, (long)10)
+	close (fd);
+	fd = open("texto.txt", O_WRONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	READ(fd, buffer, 25)
+	close (fd);
+	fd = open("texto.txt", O_WRONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	READ(fd, buffer, 50)
+	close (fd);
+	fd = open("texto.txt", O_WRONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	READ(fd, buffer, 250)
+	close (fd);
+	fd = open("texto.txt", O_WRONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	READ(fd, buffer, 500)
+	close (fd);
+	fd = open("texto.txt", O_WRONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	READ(fd, buffer, 1350)
+	close (fd);
 	printf(ANSI_COLOR_YELLOW "\n--------------------\nFINALIZADO TEST READ\n--------------------\n\n" ANSI_COLOR_RESET);
 
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_STRDUP VS STRDUP\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"----------------------------\n" ANSI_COLOR_RESET);
-	printf("\n--ft_strdup\n");
-	tmp2 = ft_strdup("toto");
+	printf("\n");
+	tmp2 = ft_strdup(s2);
 	DUP(tmp2)
 	free(tmp2);
-	DUP("totobar")
-	DUP("long message")
-	DUP("")
-	DUP(NULL)
-	printf("-done\n");
+	tmp2 = ft_strdup(s3);
+	DUP(tmp2)
+	free(tmp2);
+	tmp2 = ft_strdup(s4);
+	DUP(tmp2)
+	free(tmp2);
+	tmp2 = ft_strdup(s5);
+	DUP(tmp2)
+	free(tmp2);
+	tmp2 = ft_strdup(s1);
+	DUP(tmp2)
+	free(tmp2);
+
 	printf(ANSI_COLOR_YELLOW "\n----------------------\nFINALIZADO TEST STRDUP\n----------------------\n\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_YELLOW "\n----------------------\nFINALIZADOS  TODOS  LOS TESTS\n----------------------\n\n" ANSI_COLOR_RESET);
 
 	return (0);
 }
