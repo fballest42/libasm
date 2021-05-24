@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:42:07 by fballest          #+#    #+#             */
-/*   Updated: 2021/05/21 14:06:38 by fballest         ###   ########.fr       */
+/*   Updated: 2021/05/24 12:35:51 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		main()
 	int		i;
 	long	r;
 	char	buffer[1351];
+	char	buffer2[1351];
 	char	*s1;
 	char	*s2;
 	char	*s3;
@@ -241,15 +242,32 @@ int		main()
 	printf(ANSI_COLOR_BLUE	"\n------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_READ VS READ\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"------------------------\n" ANSI_COLOR_RESET);
-	fd = open("texto.txt", O_WRONLY);
+	bzero(buffer, 1350);
+	bzero(buffer2, 1350);
+	fd = open("texto.txt", O_RDONLY);
 	if (fd <= 0)
 	{
 		printf("ERROR DE APERTURA DEL ARCHIVO");
 		exit (-1);
 	}
-	READ(fd, buffer, (long)10)
+	READ(fd, buffer, 10)
 	close (fd);
-	fd = open("texto.txt", O_WRONLY);
+	fd = open("texto.txt", O_RDONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	read(fd, buffer2, 10);
+	printf(" ------> %s\n", buffer2);
+	if (ft_strcmp(buffer, buffer2) != 0)
+		printf(ANSI_COLOR_RED "\nERROR\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN "\nTEST CORRECTO\n" ANSI_COLOR_RESET);
+	close (fd);
+	bzero(buffer, 1350);
+	bzero(buffer2, 1350);
+	fd = open("texto.txt", O_RDONLY);
 	if (fd <= 0)
 	{
 		printf("ERROR DE APERTURA DEL ARCHIVO");
@@ -257,7 +275,22 @@ int		main()
 	}
 	READ(fd, buffer, 25)
 	close (fd);
-	fd = open("texto.txt", O_WRONLY);
+	fd = open("texto.txt", O_RDONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	read(fd, buffer2, 25);
+	printf(" ------> %s\n", buffer2);
+	if (ft_strcmp(buffer, buffer2) != 0)
+		printf(ANSI_COLOR_RED "\nERROR\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN "\nTEST CORRECTO\n" ANSI_COLOR_RESET);
+	close (fd);
+	bzero(buffer, 1350);
+	bzero(buffer2, 1350);
+	fd = open("texto.txt", O_RDONLY);
 	if (fd <= 0)
 	{
 		printf("ERROR DE APERTURA DEL ARCHIVO");
@@ -265,7 +298,22 @@ int		main()
 	}
 	READ(fd, buffer, 50)
 	close (fd);
-	fd = open("texto.txt", O_WRONLY);
+	fd = open("texto.txt", O_RDONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	read(fd, buffer2, 50);
+	printf(" ------> %s\n", buffer2);
+	if (ft_strcmp(buffer, buffer2) != 0)
+		printf(ANSI_COLOR_RED "\nERROR\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN "\nTEST CORRECTO\n" ANSI_COLOR_RESET);
+	close (fd);
+	bzero(buffer, 1350);
+	bzero(buffer2, 1350);
+	fd = open("texto.txt", O_RDONLY);
 	if (fd <= 0)
 	{
 		printf("ERROR DE APERTURA DEL ARCHIVO");
@@ -273,7 +321,22 @@ int		main()
 	}
 	READ(fd, buffer, 250)
 	close (fd);
-	fd = open("texto.txt", O_WRONLY);
+	fd = open("texto.txt", O_RDONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	read(fd, buffer2, 250);
+	printf(" ------> %s\n", buffer2);
+	if (ft_strcmp(buffer, buffer2) != 0)
+		printf(ANSI_COLOR_RED "\nERROR\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN "\nTEST CORRECTO\n" ANSI_COLOR_RESET);
+	close (fd);
+	bzero(buffer, 1350);
+	bzero(buffer2, 1350);
+	fd = open("texto.txt", O_RDONLY);
 	if (fd <= 0)
 	{
 		printf("ERROR DE APERTURA DEL ARCHIVO");
@@ -281,7 +344,22 @@ int		main()
 	}
 	READ(fd, buffer, 500)
 	close (fd);
-	fd = open("texto.txt", O_WRONLY);
+	fd = open("texto.txt", O_RDONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	read(fd, buffer2, 500);
+	printf(" ------> %s\n", buffer2);
+	if (ft_strcmp(buffer, buffer2) != 0)
+		printf(ANSI_COLOR_RED "\nERROR\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN "\nTEST CORRECTO\n" ANSI_COLOR_RESET);
+	close (fd);
+	bzero(buffer, 1350);
+	bzero(buffer2, 1350);
+	fd = open("texto.txt", O_RDONLY);
 	if (fd <= 0)
 	{
 		printf("ERROR DE APERTURA DEL ARCHIVO");
@@ -289,8 +367,22 @@ int		main()
 	}
 	READ(fd, buffer, 1350)
 	close (fd);
+	fd = open("texto.txt", O_RDONLY);
+	if (fd <= 0)
+	{
+		printf("ERROR DE APERTURA DEL ARCHIVO");
+		exit (-1);
+	}
+	read(fd, buffer2, 1350);
+	printf(" ------> %s\n", buffer2);
+	if (ft_strcmp(buffer, buffer2) != 0)
+		printf(ANSI_COLOR_RED "\nERROR\n" ANSI_COLOR_RESET);
+	else
+		printf(ANSI_COLOR_GREEN "\nTEST CORRECTO\n" ANSI_COLOR_RESET);
+	close (fd);
+	bzero(buffer, 1350);
+	bzero(buffer2, 1350);
 	printf(ANSI_COLOR_YELLOW "\n--------------------\nFINALIZADO TEST READ\n--------------------\n\n" ANSI_COLOR_RESET);
-
 	printf(ANSI_COLOR_BLUE	"\n----------------------------\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"TEST DEL FT_STRDUP VS STRDUP\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_BLUE	"----------------------------\n" ANSI_COLOR_RESET);
