@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 11:03:34 by fballest          #+#    #+#              #
-#    Updated: 2021/05/21 13:16:23 by fballest         ###   ########.fr        #
+#    Updated: 2021/06/08 11:21:58 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ clean:
 
 fclean:			clean
 				rm -rf $(NAME) $(BONUS) $(TEST) $(TEST_BONUS)
+				rm -rf escrito.txt
 
 re:				fclean $(NAME)
 
@@ -42,4 +43,4 @@ test:			$(NAME)
 				gcc $(FLAGS) main.c $(NAME) -o $(TEST)
 				./$(TEST)
 
-.PHONY:			clean fclean re test bonus test_bonus
+.PHONY:			all clean fclean re test
