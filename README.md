@@ -4,7 +4,7 @@
 
 ### Currently this project is not available in the common core cursus since February 2021. NASM have been moved outside of the common core and only available to student of level 10 or more.
 
-### You can find more information about this project in [english](Subject/en.subject.pdf) or [spanish](Subject/es.subject.pdf).
+### You can find more information about this project in [English](Subject/en.subject.pdf) or [Spanish](Subject/es.subject.pdf).
 
 ### Launch "Make" to create the Libasm library or "Make test" to create it and test it. You can review the test on the [main.c](main.c) file. 
 
